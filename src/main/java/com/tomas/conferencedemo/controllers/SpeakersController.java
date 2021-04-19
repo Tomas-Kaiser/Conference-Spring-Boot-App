@@ -40,6 +40,7 @@ public class SpeakersController {
 
     @PutMapping("/{id}")
     public Speaker updateSpeaker(@PathVariable Long id, @RequestBody final Speaker speaker) {
+        // TODO: Check if all properties are field otherwise it will be a null or use patch instead
         Speaker existingSpeaker = speakerRepository.getOne(id);
         BeanUtils.copyProperties(speaker, existingSpeaker, "speakerId");
         return speakerRepository.saveAndFlush(existingSpeaker);
