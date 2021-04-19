@@ -1,6 +1,7 @@
 package com.tomas.conferencedemo.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "sessions") // The name matches with the table's name in DB
 public class Session {
@@ -15,8 +16,24 @@ public class Session {
     @Column(name = "session_length")
     private Integer sessionLength;
 
+    @ManyToMany
+    @JoinTable(
+            name = "session_speakers",
+            joinColumns = @JoinColumn(name = "session_id"),
+            inverseJoinColumns = @JoinColumn(name = "speaker_id")
+    )
+    private List<Speaker> speakers;
+
     // Add empty constructor for serializing and deserializing data
     public Session() {
+    }
+
+    public List<Speaker> getSpeakers() {
+        return speakers;
+    }
+
+    public void setSpeakers(List<Speaker> speakers) {
+        this.speakers = speakers;
     }
 
     public Long getSessionId() {
