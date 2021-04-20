@@ -20,8 +20,7 @@ public class Session {
     @JoinTable(
             name = "session_speakers",
             joinColumns = @JoinColumn(name = "session_id"),
-            inverseJoinColumns = @JoinColumn(name = "speaker_id")
-    )
+            inverseJoinColumns = @JoinColumn(name = "speaker_id"))
     private List<Speaker> speakers;
 
     // Add empty constructor for serializing and deserializing data

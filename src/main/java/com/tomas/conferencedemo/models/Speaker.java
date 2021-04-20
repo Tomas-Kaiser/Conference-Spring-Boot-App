@@ -7,10 +7,10 @@ import java.util.List;
 
 @Entity(name = "speakers")
 public class Speaker {
-    @Column(name = "speacker_id")
+    @Column(name = "speaker_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long speackerId;
+    private long speakerId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -30,7 +30,7 @@ public class Speaker {
     // This is for binary data. Lob => Large Object
     @Column(name = "speaker_photo")
     @Lob
-    @Type(type = "org.hibernate.type.binaryType")
+//    @Type(type = "org.hibernate.type.binaryType")
     private byte[] speakerPhoto;
 
     public Speaker() {
@@ -52,12 +52,12 @@ public class Speaker {
         this.sessions = sessions;
     }
 
-    public long getSpeackerId() {
-        return speackerId;
+    public long getSpeakerId() {
+        return speakerId;
     }
 
-    public void setSpeackerId(long speackerId) {
-        this.speackerId = speackerId;
+    public void setSpeakerId(long speackerId) {
+        this.speakerId = speackerId;
     }
 
     public String getFirstName() {
