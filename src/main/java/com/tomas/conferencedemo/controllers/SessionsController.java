@@ -29,6 +29,11 @@ public class SessionsController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Session createSession(@RequestBody final Session session) {
+
+        System.out.println("*************** SESSION ***********");
+        System.out.println(session.getSessionName());
+        System.out.println(session.getSessionDescription());
+        System.out.println(session.getSessionLength());
         return sessionRepository.saveAndFlush(session);
     }
 
